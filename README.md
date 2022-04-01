@@ -2,7 +2,7 @@
 
 # HOW TO USE THIS RUBY ON RAILS API
 
-* This API uses Ruby V3.0.0
+* This API uses Ruby V3.0.0 & MySql V8.0
 
 # RUNNING LOCALLY (requires linux)
 ## I use an Ubuntu terminal in either WSL2 (windows 10) or WSLg (windows11) to run this locally.
