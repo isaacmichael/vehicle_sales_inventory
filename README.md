@@ -35,7 +35,7 @@
 # EXAMPLE COMMANDS THAT CAN BE USED. (In case the openapi.yaml is not clear (it my first time making one))
 
 
-#everything is aut paginated to 20 results autmatically
+# everything is automatically paginated to 20 results per page
 
 ### http://localhost:3001/vehicle_sales - GETS EVERYTHING
 ### http://localhost:3001/vehicle_sales/{id} - GETS OBJECT BY ID
