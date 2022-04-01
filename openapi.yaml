@@ -159,7 +159,7 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: vehicleMake
+      - name: ?make={make}
         in: query
         description: objects with sepcified make to return
         required: false
@@ -183,7 +183,7 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: vehicleModel
+      - name: ?model={model}
         in: query
         description: objects with sepcified model to return
         required: false
@@ -207,7 +207,7 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: vehicleYear
+      - name: ?year={year}
         in: query
         description: objects with sepcified model to return
         required: false
@@ -231,7 +231,7 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: vehicleColor
+      - name: ?year={year}
         in: query
         description: objects with sepcified  to return
         required: false
