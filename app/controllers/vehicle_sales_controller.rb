@@ -14,22 +14,22 @@ class VehicleSalesController < ApplicationController
 #methods to get specific makes, models, etc...
   def searchMake
     @vehicle_sales = VehicleSale.where("make LIKE ?",  params[:make])
-    render json: @vehicle_sales
+    paginate @vehicle_sales, per_page: 20
   end
 
   def searchModel
     @vehicle_sales = VehicleSale.where("model LIKE ?",  params[:model])
-    render json: @vehicle_sales
+    paginate @vehicle_sales, per_page: 20
   end
 
   def searchYear
     @vehicle_sales = VehicleSale.where("year LIKE ?",  params[:year])
-    render json: @vehicle_sales
+    paginate @vehicle_sales, per_page: 20
   end
 
   def searchColor
     @vehicle_sales = VehicleSale.where("color LIKE ?",  params[:color])
-    render json: @vehicle_sales
+    paginate @vehicle_sales, per_page: 20
   end
 
   # POST /vehicle_sales
