@@ -4,7 +4,7 @@
 
 * This API uses Ruby V3.0.0
 
-# RUNNING LOCALLY (not very fun)
+# RUNNING LOCALLY (requires linux)
 ## I use an Ubuntu terminal in either WSL2 (windows 10) or WSLg (windows11) to run this locally.
 * clone the src code
 * install mysql 
@@ -24,9 +24,9 @@
 ##cd to make the current directory "vehicle_sales_inventory"
 * run "docker-compose build" and "docker-compose up"
 * Docker should generate two containers, "MySql" and "Ruby_On_Rails"
-* The database should be created with a script file, but in case it isnt you can go to the "Ruby_On_Rails" container's CLI and run 'rails db:drop db:create db:migrate db:seed'
-* from there the databse should be loaded in with preset values. Try out a request in the browser or postman, e.g (http:localhost:3000/vehicle_sales)
-* This should return the list paginated to 20 results.
+* Unfortunateyl, The database will need to be initialized manually. Go into the ruby on rails container's CLI and run "rails db:drop db:create db:migrate db:seed". After that, it should be ready to serve data.
+* Now that the databse is loaded in with preset seeds. Try out a request in the browser or postman, e.g (http:localhost:3000/vehicle_sales)
+* This should return the list paginated to 20 results. Pages can be switched by using "?page={number}" after the orginal URL.
 
 # TESTING IN DOCKER
 * There are a few tests, you can run these by using the ruby_on_rails container's CLI and running "rails test".
