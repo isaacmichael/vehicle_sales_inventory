@@ -24,7 +24,7 @@
 ##cd to make the current directory "vehicle_sales_inventory"
 * run "docker-compose build" and "docker-compose up"
 * Docker should generate two containers, "MySql" and "Ruby_On_Rails"
-* Unfortunateyl, The database will need to be initialized manually. Go into the ruby on rails container's CLI and run "rails db:drop db:create db:migrate db:seed". After that, it should be ready to serve data.
+* Unfortunately, The database will need to be initialized manually. Go into the ruby on rails container's CLI and run "rails db:drop db:create db:migrate db:seed". After that, it should be ready to serve data.
 * Now that the databse is loaded in with preset seeds. Try out a request in the browser or postman, e.g (http:localhost:3000/vehicle_sales)
 * This should return the list paginated to 20 results. Pages can be switched by using "?page={number}" after the orginal URL.
 
