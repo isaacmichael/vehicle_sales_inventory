@@ -17,6 +17,10 @@ Things you may want to cover:
 * To test, run "rails test" or to start the server, run "rails server"
 * a webpage should appear saying "RAILS"
 * from there you can use the webpage or postman to create requests e.g (http:localhost:3000/vehicle_sales) to get the first 20 results 
+# TESTING IN LOCAL
+* There are a few tests, assuming the you have ther server stopped, you can run these with "rails test"
+
+
 
 # RUNNING WITH DOCKER
 
@@ -27,16 +31,15 @@ Things you may want to cover:
 * from there the databse should be loaded in with preset values. Try out a request in the browser or postman, e.g (http:localhost:3000/vehicle_sales)
 * This should return the list paginated to 20 results.
 
-* Configuration
+# TESTING IN DOCKER
+* There are a few tests, you can run these by using the ruby_on_rails container's CLI and running "rails test".
 
-* Database creation
 
-* Database initialization
+# EXAMPLE COMMANDS THAT CAN BE USED. (In case the openapi.yaml is not clear (it my first time making one))
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## http://localhost:3001/vehicle_sales - GETS EVERYTHING, PAGINATED TO 20 RESULTS
+## http://localhost:3001/vehicle_sales/{id} - GETS OBJECT BY ID
+## http://localhost:3001/searchMake?make={make} - GETS OBJECTS WHERE THE SPECIFIED MAKE OF CAR IS FOUND
+## http://localhost:3001/searchModel?model={model} - GETS OBJECTS WHERE THE SPECIFIED MODEL OF CAR IS FOUND
+## http://localhost:3001/searchYear?year={year} - GETS OBJECTS WHERE THE SPECIFIED YEAR OF CAR IS FOUND
+## http://localhost:3001/searchColor?color={color} - GETS OBJECTS WHERE THE SPECIFIED COLOR OF CAR IS FOUND
