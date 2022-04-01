@@ -1,0 +1,281 @@
+---
+swagger: "2.0"
+info:
+  description: |
+    This is a Vehicle Sales API for storing and recieving basic information about the cars currently in the inventory.
+  version: 1.0.0
+  title: Vehicle Sales
+  contact:
+    email: isaacmichael9@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /isaacmichael9/Vehicle/1.0.0
+tags:
+- name: Vehicle Sales
+  description: Everything about your Vehicles
+schemes:
+- https
+- http
+paths:
+  /vehicle_sales:
+    post:
+      tags:
+      - Vehicle Sales
+      summary: Add a new vehicle to the store
+      operationId: addVehicle
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Vehicle object that needs to be added to the store
+        required: true
+        schema:
+          $ref: '#/definitions/Vehicle'
+      responses:
+        "405":
+          description: Invalid input
+    put:
+      tags:
+      - vehicle
+      summary: Update an existing vehicle
+      operationId: updateVehicle
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Vehicle object that needs to be added to the store
+        required: true
+        schema:
+          $ref: '#/definitions/Vehicle'
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Vehicle not found
+        "405":
+          description: Validation exception
+  /vehicle_sales/{vehicleId}:
+    get:
+      tags:
+      - vehicle
+      summary: Find vehicle by ID
+      description: Returns a single vehicle
+      operationId: getVehicleById
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: vehicleId
+        in: path
+        description: ID of pet to return
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Vehicle'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Vehicle not found
+    post:
+      tags:
+      - vehicle
+      summary: Updates a vehicle in the store with form data
+      operationId: updateVehicleWithForm
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: vehicleMake
+        in: query
+        description: objects with sepcified make to return
+        required: false
+        type: string
+      - name: vehicleId
+        in: path
+        description: ID of vehicle that needs to be updated
+        required: true
+        type: integer
+        format: int64
+      - name: name
+        in: formData
+        description: Updated Vehicle
+        required: false
+        type: string
+      - name: status
+        in: formData
+        description: Updated status of the vehicle
+        required: false
+        type: string
+      responses:
+        "405":
+          description: Invalid input
+    delete:
+      tags:
+      - vehicle
+      summary: Deletes a vehicle
+      operationId: deleteVehicle
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: api_key
+        in: header
+        required: false
+        type: string
+      - name: vehicleId
+        in: path
+        description: vehicle object to delete
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Vehicle not found
+  /searchMake:
+    get:
+      tags:
+      - vehicleSearch
+      summary: Find vehicle by Make
+      description: Returns vehicle where make matches parameters
+      operationId: getVehicleByMake
+      produces:
+      - application/json
+      parameters:
+      - name: vehicleMake
+        in: query
+        description: objects with sepcified make to return
+        required: false
+        type: string
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Vehicle'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Vehicle not found
+  /searchModel:
+    get:
+      tags:
+      - vehicleSearch
+      summary: Find vehicle by Model
+      description: Returns vehicle where model matches parameters
+      operationId: getVehicleByModel
+      produces:
+      - application/json
+      parameters:
+      - name: vehicleModel
+        in: query
+        description: objects with sepcified model to return
+        required: false
+        type: string
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Vehicle'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Vehicle not found
+  /searchYear:
+    get:
+      tags:
+      - vehicleSearch
+      summary: Find vehicle by Year
+      description: Returns vehicle where model matches parameters
+      operationId: getVehicleByYear
+      produces:
+      - application/json
+      parameters:
+      - name: vehicleYear
+        in: query
+        description: objects with sepcified model to return
+        required: false
+        type: string
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Vehicle'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Vehicle not found
+  /searchColor:
+    get:
+      tags:
+      - vehicleSearch
+      summary: Find vehicle by Color
+      description: Returns vehicle where color matches parameters
+      operationId: getVehicleByColor
+      produces:
+      - application/json
+      parameters:
+      - name: vehicleColor
+        in: query
+        description: objects with sepcified  to return
+        required: false
+        type: string
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Vehicle'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Vehicle not found
+definitions:
+  Vehicle:
+    type: object
+    properties:
+      make:
+        type: string
+        example: honda
+      model:
+        type: string
+      year:
+        type: integer
+      color:
+        type: string
+      price:
+        type: integer
+      mileage:
+        type: integer
+      specs:
+        type: string
+    xml:
+      name: Vehicle
+  ApiResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      type:
+        type: string
+      message:
+        type: string
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
