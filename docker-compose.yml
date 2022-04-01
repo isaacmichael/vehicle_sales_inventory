@@ -1,0 +1,35 @@
+version: '2'
+services:
+    db: 
+        container_name: MySql
+        image: mysql:8.0
+
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: app
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+        ports:
+            - "3307:3306"
+        command: --init-file /data/application/init.sql
+        volumes: 
+            - ./init.sql:/data/application/init.sql
+
+    web: 
+        container_name: Ruby_On_Rails
+        build: .
+        command: bundle exec rails s -p 3001 -b '0.0.0.0'
+        volumes: 
+            - ".:/web"
+        ports: 
+            - "3001:3001"
+        depends_on:
+            - db
+        links:
+            - db
+        environment:
+            DB_USER: root
+            DB_NAME: app
+            DB_PASSWORD: password
+            DB_HOST: db
