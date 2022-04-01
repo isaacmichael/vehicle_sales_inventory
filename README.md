@@ -37,18 +37,18 @@
 
 #everything is aut paginated to 20 results autmatically
 
-## http://localhost:3001/vehicle_sales - GETS EVERYTHING
-## http://localhost:3001/vehicle_sales/{id} - GETS OBJECT BY ID
-## http://localhost:3001/searchMake?make={make} - GETS OBJECTS WHERE THE SPECIFIED MAKE OF CAR IS FOUND
-## http://localhost:3001/searchModel?model={model} - GETS OBJECTS WHERE THE SPECIFIED MODEL OF CAR IS FOUND
-## http://localhost:3001/searchYear?year={year} - GETS OBJECTS WHERE THE SPECIFIED YEAR OF CAR IS FOUND
-## http://localhost:3001/searchColor?color={color} - GETS OBJECTS WHERE THE SPECIFIED COLOR OF CAR IS FOUND
+### http://localhost:3001/vehicle_sales - GETS EVERYTHING
+### http://localhost:3001/vehicle_sales/{id} - GETS OBJECT BY ID
+### http://localhost:3001/searchMake?make={make} - GETS OBJECTS WHERE THE SPECIFIED MAKE OF CAR IS FOUND
+### http://localhost:3001/searchModel?model={model} - GETS OBJECTS WHERE THE SPECIFIED MODEL OF CAR IS FOUND
+### http://localhost:3001/searchYear?year={year} - GETS OBJECTS WHERE THE SPECIFIED YEAR OF CAR IS FOUND
+### http://localhost:3001/searchColor?color={color} - GETS OBJECTS WHERE THE SPECIFIED COLOR OF CAR IS FOUND
 
 
 # TO ACCESS OTHER PAGES THROUGH PAGINATION DO THIS
 
-## http://localhost:3001/vehicle_sales&page={page} - GETS EVERYTHING FROM SELECTED PAGE
-## http://localhost:3001/searchMake?make={make}&page={page}
-## http://localhost:3001/searchModel?model={model}&page={page} 
-## http://localhost:3001/searchYear?year={year}&page={page} 
-## http://localhost:3001/searchColor?color={color}&page={page} 
+### http://localhost:3001/vehicle_sales&page={page} - GETS EVERYTHING FROM SELECTED PAGE
+### http://localhost:3001/searchMake?make={make}&page={page}
+### http://localhost:3001/searchModel?model={model}&page={page} 
+### http://localhost:3001/searchYear?year={year}&page={page} 
+### http://localhost:3001/searchColor?color={color}&page={page} 
