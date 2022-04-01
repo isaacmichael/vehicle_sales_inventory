@@ -3,9 +3,8 @@ class VehicleSalesController < ApplicationController
 
   # GET /vehicle_sales
   def index
-    @vehicle_sales = VehicleSale.all
-
-    render json: @vehicle_sales
+    @vehicle_sales= VehicleSale.all
+    paginate @vehicle_sales, per_page: 20
   end
 
   # GET /vehicle_sales/1
